@@ -1,0 +1,15 @@
+<%= link_to("<< Back to List", sessions_path, :class => 'back-link') %>
+
+<div class="sessions new">
+  <h2>Create session</h2>
+
+  <%= form_for(@session) do |f| %>
+
+    <%= render(:partial => 'form', :locals => {:f => f}) %>
+
+    <div class="form-buttons">
+      <%= f.submit("Create session") %>
+    </div>
+
+  <% end %>
+</div>

@@ -1,0 +1,32 @@
+<div class="speakers index">
+  <h2>Sessions</h2>
+
+  <%= link_to("Add New Session", new_session_path, :class => 'action new') %>
+
+  <table class="listing" summary="Session list">
+    <tr class="header">
+      <th>#</th>
+      <th>Event</th>
+      <th>Session</th>
+      <th>Date</th>
+      <th>Duration</th>
+
+      <th>Actions</th>
+    </tr>
+    <% @sessions.each do |session| %>
+    <tr>
+      <td><%= session.id %></td>
+      <td><%= session.event.event_name %></td>
+      <td><%= session.title %></td>
+      <td><%= session.date.strftime("%d %B %Y") %></td>
+      <td><%= session.time_from.strftime("%H:%M") %> - <%= session.time_to.strftime("%H:%M") %></td>
+
+      <td class="actions">
+        <%= link_to("Show", session_path(session), :class => 'action show') %>
+        <%= link_to("Edit", edit_session_path(session), :class => 'action edit') %>
+        <%= link_to("Delete", delete_session_path(session), :class => 'action delete') %>
+      </td>
+    </tr>
+    <% end %>
+  </table>
+</div>

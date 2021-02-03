@@ -1,0 +1,37 @@
+<%= link_to("<< Back to List", events_path, :class => 'back-link') %>
+
+<div class="events show">
+  <h2>Show event</h2>
+
+  <table summary="event detail view">
+    <tr>
+      <th>Title</th>
+      <td><%= @event.event_name %></td>
+    </tr>
+    <tr>
+      <th>Category</th>
+      <td><%= @event.category.name %></td>
+    </tr>
+    <tr>
+      <th>Host</th>
+      <td><%= @event.host.name %></td>
+    </tr>
+    <tr>
+      <th>Date from</th>
+      <td><%= @event.date_from.strftime("%A, %d %B %Y")  %></td>
+    </tr>
+    <tr>
+      <th>Date to</th>
+      <td><%= @event.date_to.strftime("%A, %d %B %Y")  %></td>
+    </tr>
+    <tr>
+      <th>Created</th>
+      <td><%= @event.created_at.strftime("%d %B %Y - %H:%M") %></td>
+    </tr>
+    <tr>
+      <th>Updated</th>
+      <td><%= @event.updated_at.strftime("%d %B %Y - %H:%M") %></td>
+    </tr>
+  </table>
+
+</div>

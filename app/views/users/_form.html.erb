@@ -1,0 +1,31 @@
+<%= errors_for(f.object) %>
+
+<table summary="Page form fields">
+  <tr>
+    <th>First name</th>
+    <td><%= f.text_field(:first_name) %></td>
+  </tr>
+  <tr>
+    <th>Last name</th>
+    <td><%= f.text_field(:last_name) %></td>
+  </tr>
+  <tr>
+    <th>Email</th>
+    <td><%= f.text_field(:email) %></td>
+  </tr>
+  <tr>
+    <th>Opt in in to communications?</th>
+    <td><%= f.radio_button(:optin, 'Yes') %> Yes<br>
+      <%= f.radio_button(:optin, 'No') %> No
+    </td>
+  </tr>
+  <tr>
+    <th>Password</th>
+    <td><%= f.password_field(:password) %></td>
+  </tr>
+  <tr>
+    <th>Role</th>
+    <td><%= f.select(:role_id, Role.all.map {|r| [r.role, r.id]}, :prompt => "- Select-") %></td>
+  </tr>
+
+</table>

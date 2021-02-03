@@ -1,0 +1,26 @@
+<%= errors_for(f.object) %>
+
+<table summary="Event form fields">
+  <tr>
+    <th>Title</th>
+    <td><%= f.text_field(:event_name) %></td>
+  </tr>
+  <tr>
+    <th>Date from</th>
+    <td><%= f.date_field(:date_from) %></td>
+  </tr>
+  <tr>
+    <th>Date to</th>
+    <td><%= f.date_field(:date_to) %></td>
+  </tr>
+  <tr>
+    <th>Host</th>
+    <td><%= f.select(:host_id, Host.all.map {|h| [h.name, h.id]}, :prompt => "- Select-") %></td>
+
+  </tr>
+  <tr>
+    <th>Category</th>
+    <td><%= f.select(:category_id, Category.all.map {|c| [c.name, c.id]}, :prompt => "- Select-") %></td>
+  </tr>
+
+</table>

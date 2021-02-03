@@ -1,0 +1,15 @@
+<%= link_to("<< Back to List", roles_path, :class => 'back-link') %>
+
+<div class="roles edit">
+  <h2>Update Role</h2>
+
+  <%= form_for(@role) do |f| %>
+
+    <%= render(:partial => 'form', :locals => {:f => f}) %>
+
+    <div class="form-buttons">
+      <%= f.submit("Update Role") %>
+    </div>
+
+  <% end %>
+</div>

@@ -1,0 +1,26 @@
+<div class="categories index">
+  <h2>Categories</h2>
+
+  <%= link_to("Add New Category", new_category_path, :class => 'action new') %>
+
+  <table class="listing" summary="Category list">
+    <tr class="header">
+      <th>#</th>
+      <th>Category</th>
+
+      <th>Actions</th>
+    </tr>
+    <% @categories.each do |cat| %>
+    <tr>
+      <td><%= cat.id %></td>
+      <td><%= cat.name %></td>
+
+      <td class="actions">
+        <%= link_to("Show", category_path(cat), :class => 'action show') %>
+        <%= link_to("Edit", edit_category_path(cat), :class => 'action edit') %>
+        <%= link_to("Delete", delete_category_path(cat), :class => 'action delete') %>
+      </td>
+    </tr>
+    <% end %>
+  </table>
+</div>

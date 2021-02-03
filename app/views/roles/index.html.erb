@@ -1,0 +1,25 @@
+<div class="pages index">
+  <h2>Roles</h2>
+
+  <%= link_to("Add New Role", new_role_path, :class => 'action new') %>
+
+  <table class="listing" summary="Role list">
+    <tr class="header">
+      <th>#</th>
+      <th>Role</th>
+
+      <th>Actions</th>
+    </tr>
+    <% @roles.each do |role| %>
+    <tr>
+      <td><%= role.id %></td>
+      <td><%= role.role %></td>
+
+      <td class="actions">
+        <%= link_to("Edit", edit_role_path(role), :class => 'action edit') %>
+        <%= link_to("Delete", delete_role_path(role), :class => 'action delete') %>
+      </td>
+    </tr>
+    <% end %>
+  </table>
+</div>

@@ -1,0 +1,41 @@
+<%= link_to("<< Back to List", sessions_path, :class => 'back-link') %>
+
+<div class="sessions show">
+  <h2>Show sessions</h2>
+
+  <table summary="session detail view">
+    <tr>
+      <th>Title</th>
+      <td><%= @session.title %></td>
+    </tr>
+    <tr>
+      <th>Description</th>
+      <td><%= @session.description %></td>
+    </tr>
+    <tr>
+      <th>Date</th>
+      <td><%= @session.date.strftime("%A, %d %B %Y") %></td>
+    </tr>
+    <tr>
+      <th>Time from</th>
+      <td><%= @session.time_from.strftime("%H:%M")  %></td>
+    </tr>
+    <tr>
+      <th>Time to</th>
+      <td><%= @session.time_to.strftime("%H:%M")  %></td>
+    </tr>
+    <tr>
+      <th>Speaker</th>
+      <td><%= @session.speaker.name %></td>
+    </tr>
+    <tr>
+      <th>Created</th>
+      <td><%= @session.created_at.strftime("%d %B %Y - %H:%M") %></td>
+    </tr>
+    <tr>
+      <th>Updated</th>
+      <td><%= @session.updated_at.strftime("%d %B %Y - %H:%M") %></td>
+    </tr>
+  </table>
+
+</div>

@@ -1,0 +1,34 @@
+<%= errors_for(f.object) %>
+
+<table summary="Session form fields">
+  <tr>
+    <th>Title</th>
+    <td><%= f.text_field(:title) %></td>
+  </tr>
+  <tr>
+    <th>Detail</th>
+    <td><%= f.text_area(:description, :rows => 10, :cols => 60) %></td>
+  </tr>
+  <tr>
+    <th>Date</th>
+    <td><%= f.date_field(:date) %></td>
+  </tr>
+  <tr>
+    <th>Time from</th>
+    <td><%= f.time_field(:time_from) %></td>
+  </tr>
+  <tr>
+    <th>Time to</th>
+    <td><%= f.time_field(:time_to) %></td>
+  </tr>
+  <tr>
+    <th>Event</th>
+    <td><%= f.select(:event_id, Event.all.map {|e| [e.event_name, e.id]}, :prompt => "- Select-") %></td>
+
+  </tr>
+  <tr>
+    <th>Speaker</th>
+    <td><%= f.select(:speaker_id, Speaker.all.map {|s| [s.name, s.id]}, :prompt => "- Select-") %></td>
+  </tr>
+
+</table>

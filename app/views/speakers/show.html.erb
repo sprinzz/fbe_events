@@ -1,0 +1,37 @@
+<%= link_to("<< Back to List", speakers_path, :class => 'back-link') %>
+
+<div class="speakers show">
+  <h2>Show speaker</h2>
+
+  <table summary="speaker detail view">
+    <tr>
+      <th>Name</th>
+      <td><%= @speaker.name %></td>
+    </tr>
+    <tr>
+      <th>Email</th>
+      <td><%= @speaker.email %></td>
+    </tr>
+    <tr>
+      <th>Institution</th>
+      <td><%= @speaker.institution %></td>
+    </tr>
+    <tr>
+      <th>Image</th>
+      <td><%= @speaker.image  %></td>
+    </tr>
+    <tr>
+      <th>Bio</th>
+      <td><%= @speaker.bio  %></td>
+    </tr>
+    <tr>
+      <th>Created</th>
+      <td><%= @speaker.created_at %></td>
+    </tr>
+    <tr>
+      <th>Updated</th>
+      <td><%= @speaker.updated_at %></td>
+    </tr>
+  </table>
+
+</div>

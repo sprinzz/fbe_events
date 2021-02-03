@@ -1,0 +1,26 @@
+<div class="hosts index">
+  <h2>Hosts</h2>
+
+  <%= link_to("Add New Host", new_host_path, :class => 'action new') %>
+
+  <table class="listing" summary="Host list">
+    <tr class="header">
+      <th>#</th>
+      <th>Host</th>
+<th>Website</th>
+      <th>Actions</th>
+    </tr>
+    <% @hosts.each do |host| %>
+    <tr>
+      <td><%= host.id %></td>
+      <td><%= host.name %></td>
+      <td><%= host.link %></td>
+      <td class="actions">
+        <%= link_to("Show", host_path(host), :class => 'action show') %>
+        <%= link_to("Edit", edit_host_path(host), :class => 'action edit') %>
+        <%= link_to("Delete", delete_host_path(host), :class => 'action delete') %>
+      </td>
+    </tr>
+    <% end %>
+  </table>
+</div>

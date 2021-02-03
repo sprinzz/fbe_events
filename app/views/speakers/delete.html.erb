@@ -1,0 +1,16 @@
+<%= link_to("<< Back to List", speakers_path, :class => 'back-link') %>
+
+<div class="speakers delete">
+  <h2>Delete speaker</h2>
+
+  <%= form_for(@speaker, :method => 'delete') do |f| %>
+
+    <p>Are you sure you want to permanently delete this speaker?</p>
+    <p><%= @speaker.name %></p>
+
+    <div class="form-buttons">
+      <%= f.submit("Delete speaker") %>
+    </div>
+
+  <% end %>
+</div>

@@ -1,0 +1,16 @@
+<%= link_to("<< Back to List", speaker_roles_path, :class => 'back-link') %>
+
+<div class="speaker_roles delete">
+  <h2>Delete Role</h2>
+
+  <%= form_for(@speaker_role, :method => 'delete') do |f| %>
+
+    <p>Are you sure you want to permanently delete this role?</p>
+    <p><%= @speaker_role.role %></p>
+
+    <div class="form-buttons">
+      <%= f.submit("Delete Role") %>
+    </div>
+
+  <% end %>
+</div>

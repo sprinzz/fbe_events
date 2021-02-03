@@ -1,0 +1,15 @@
+<%= link_to("<< Back to List", hosts_path, :class => 'back-link') %>
+
+<div class="hosts edit">
+  <h2>Update host</h2>
+
+  <%= form_for(@host) do |f| %>
+
+    <%= render(:partial => 'form', :locals => {:f => f}) %>
+
+    <div class="form-buttons">
+      <%= f.submit("Update host") %>
+    </div>
+
+  <% end %>
+</div>

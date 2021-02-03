@@ -1,0 +1,28 @@
+<div class="speakers index">
+  <h2>Speakers</h2>
+
+  <%= link_to("Add New Speaker", new_speaker_path, :class => 'action new') %>
+
+  <table class="listing" summary="Speaker list">
+    <tr class="header">
+      <th>#</th>
+      <th>Name</th>
+      <th>Institution</th>
+      <th>Email</th>
+      <th>Actions</th>
+    </tr>
+    <% @speakers.each do |speaker| %>
+    <tr>
+      <td><%= speaker.id %></td>
+      <td><%= speaker.name %></td>
+      <td><%= speaker.institution %></td>
+      <td><%= speaker.email %></td>
+      <td class="actions">
+        <%= link_to("Show", speaker_path(speaker), :class => 'action show') %>
+        <%= link_to("Edit", edit_speaker_path(speaker), :class => 'action edit') %>
+        <%= link_to("Delete", delete_speaker_path(speaker), :class => 'action delete') %>
+      </td>
+    </tr>
+    <% end %>
+  </table>
+</div>
