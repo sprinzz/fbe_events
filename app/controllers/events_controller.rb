@@ -5,7 +5,11 @@ class EventsController < ApplicationController
 
   def show
     @event = Event.find(params[:id])
+    @sessions = Session.session_name(params[:id])
+
   end
+
+
 
   def show_sessions
     @event = Event.find(params[:id])
