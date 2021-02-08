@@ -1,32 +1,62 @@
-<div class="events index">
-  <h2>Events</h2>
+<main>
 
-  <%= link_to("Add New Event", new_event_path, :class => 'action new') %>
+  <div class="content-block content-block--sml">
+    <h1>
+        Events
+      </h1>
+    <%= link_to("Add New Event", new_event_path, :class => 'action new btn ') %>
+      </div>
+      <h4>Search events</h4>
+      <%= form_tag(events_path, method: :get) do %>
+      <%= text_field_tag(:search, params[:search]) %>
+      <%= submit_tag ("Search") %>
+      <% end %>
 
-  <table class="listing" summary="Event list">
-    <tr class="header">
-      <th>#</th>
-      <th>Category</th>
-      <th>Host</th>
-      <th>Name</th>
-      <th>Date from</th>
-      <th>Date to</th>
-      <th>Actions</th>
-    </tr>
-    <% @events.each do |event| %>
-    <tr>
-      <td><%= event.id %></td>
-      <td><%= event.category.name %></td>
-      <td><%= event.host.name %></td>
-      <td><%= event.event_name %></td>
-      <td><%= event.date_from.strftime("%d %B %Y") %></td>
-      <td><%= event.date_to.strftime("%d %B %Y") %></td>
-      <td class="actions">
-        <%= link_to("Show", event_path(event), :class => 'action show') %>
-        <%= link_to("Edit", edit_event_path(event), :class => 'action edit') %>
-        <%= link_to("Delete", delete_event_path(event), :class => 'action delete') %>
-      </td>
-    </tr>
-    <% end %>
+          <div class="events index">
+
+
+
+
+<div class="content-block">
+
+  <div class="responsive-table responsive-table--end">
+    <div class="responsive-table__inner">
+  <table id="table-styles" class="table table--striped">
+    <thead>
+      <tr class="table__row--inverted">
+
+          <th>Name</th>
+        <th>Category</th>
+        <th>Host</th>
+
+        <th>Date from</th>
+        <th>Date to</th>
+        <th>Sessions</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @events.each do |event| %>
+      <tr>
+
+        <td><%= event.event_name %></td>
+        <td><%= event.category.name %></td>
+        <td><%= event.host.name %></td>
+
+        <td><%= event.date_from.strftime("%d %B %Y") %></td>
+        <td><%= event.date_to.strftime("%d %B %Y") %></td>
+        <td><%= event.sessions.count %></td>
+        <td class="actions">
+          <%= link_to("Show", event_path(event), :class => 'action show') %><br>
+          <%= link_to("Edit", edit_event_path(event), :class => 'action edit') %><br>
+          <%= link_to("Delete", delete_event_path(event), :class => 'action delete') %><br>
+          <%= link_to("Manage sessions", list_session_path(event), :class => 'action list') %>
+
+
+        </td>
+      </tr>
+      <% end %>
+    </tbody>
   </table>
-</div>
+</div></div></div></div>
+</main>

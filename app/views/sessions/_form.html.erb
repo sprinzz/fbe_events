@@ -2,6 +2,14 @@
 
 <table summary="Session form fields">
   <tr>
+    <th>Event</th>
+    <% if params.has_key?(:event_id) %>
+    <td><%= f.select(:event_id, Event.all.map {|e| [e.event_name, e.id]}, :selected => params[:event_id]) %></td>
+    <% else %>
+    <td><%= f.select(:event_id, Event.all.map {|e| [e.event_name, e.id]}, :prompt => "- Select-") %></td>
+    <% end %>
+  </tr>
+  <tr>
     <th>Title</th>
     <td><%= f.text_field(:title) %></td>
   </tr>
@@ -21,11 +29,7 @@
     <th>Time to</th>
     <td><%= f.time_field(:time_to) %></td>
   </tr>
-  <tr>
-    <th>Event</th>
-    <td><%= f.select(:event_id, Event.all.map {|e| [e.event_name, e.id]}, :prompt => "- Select-") %></td>
 
-  </tr>
   <tr>
     <th>Speaker</th>
     <td><%= f.select(:speaker_id, Speaker.all.map {|s| [s.name, s.id]}, :prompt => "- Select-") %></td>

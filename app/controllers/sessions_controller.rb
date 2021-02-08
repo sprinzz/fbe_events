@@ -1,11 +1,18 @@
 class SessionsController < ApplicationController
   def index
-    @sessions = Session.order('event_id ASC')
+    @sessions = Session.order('event_ID ASC', 'date ASC', 'time_from ASC')
   end
 
   def show
     @session = Session.find(params[:id])
   end
+
+  def list
+    flash[:notice] = "*** list has been selected"
+    @sessions = Session.session_list(params[:id])
+
+  end
+
 
   def new
     @session = Session.new

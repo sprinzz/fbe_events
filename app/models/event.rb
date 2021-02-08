@@ -4,8 +4,11 @@ class Event < ApplicationRecord
   belongs_to :host
   has_many :sessions
 
-  def self.session_name(event_id)
-    Session.select(:name).distinct.where("course_code = ?", course_id)
+  def self.search(search)
+    if search
+      Event.where("event_name LIKE ?", "%#{search}%")
+    else
+      Event.all
+    end
   end
-
 end
