@@ -1,19 +1,13 @@
 class EventsController < ApplicationController
   def index
-    @events = Event.order('date_from DESC')
+    @events = Event.search(params[:search])
   end
 
   def show
     @event = Event.find(params[:id])
-    @sessions = Session.session_name(params[:id])
 
   end
 
-
-
-  def show_sessions
-    @event = Event.find(params[:id])
-  end
 
   def new
     @event = Event.new
@@ -66,7 +60,8 @@ class EventsController < ApplicationController
         :date_from,
         :date_to,
         :category_id,
-        :host_id
+        :host_id,
+        :search
 
       )
     end

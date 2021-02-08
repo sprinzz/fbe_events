@@ -1,16 +1,15 @@
 <main>
 
-
   <div class="content-block content-block--sml">
-    <%= link_to("<< Back to Events", events_path, :class => 'back-link') %>
     <h1>
         Sessions
       </h1>
 
-      <p><%= link_to("Add session", new_session_path, :class => 'action new btn ') %></p>
+      <p><%= link_to("Add session", new_session_path(event_id: params[:id]), :class => 'action new btn ') %></p>
       </div>
 
           <div class="sessions list">
+
 
 
 <div class="content-block">
@@ -29,6 +28,9 @@
       <th>Actions</th>
     </tr>
   </thead>
+  <% if @sessions.empty? %>
+    <p>No sessions have been set up for this event. Click on the button above to set up your first session.</p>
+  <% else %>
   <tbody>
     <% @sessions.each do |session| %>
     <tr>
@@ -44,6 +46,8 @@
         <%= link_to("Delete", delete_session_path(session), :class => 'action delete') %>
       </td>
     </tr>
+    <% end %>
+    </tbody>
     <% end %>
   </table>
 </div></div></div></div>

@@ -1,7 +1,18 @@
-<%= link_to("<< Back to List", events_path, :class => 'back-link') %>
+<main>
 
-<div class="events new">
-  <h2>Create event</h2>
+  <div class="content-block content-block--sml">
+    <h1>
+        New Event
+      </h1>
+      <p><%= link_to("<< Back to List", events_path, :class => 'back-link') %></p>
+      </div>
+
+
+
+
+<div class="content-block">
+<div class="form">
+
 
   <%= form_for(@event) do |f| %>
 
@@ -12,4 +23,6 @@
     </div>
 
   <% end %>
+  </div>
 </div>
+</main>

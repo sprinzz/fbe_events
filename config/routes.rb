@@ -52,7 +52,10 @@ Rails.application.routes.draw do
   resources :sessions do
       member do
         get :delete
+        get :list
       end
+
   end
+
 
 end
