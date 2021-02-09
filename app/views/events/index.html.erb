@@ -1,62 +1,60 @@
 <main>
+  <div class="section bg-white ct-menu">
+    <div class="section__inner">
+      <div class="grid ql-menu  ql-menu--l1 ">
+        <div class="cell cell--desk-2of3 ql-menu__content">
+          <div>
 
-  <div class="content-block content-block--sml">
-    <h1>
-        Events
-      </h1>
-    <%= link_to("Add New Event", new_event_path, :class => 'action new btn ') %>
+            <h2>Your Events</h2>
+            <div class="responsive-table responsive-table--end">
+      <div class="responsive-table__inner">
+    <table id="table-styles" class="table table--striped">
+      <thead>
+        <tr class="table__row--inverted">
+
+            <th>Name</th>
+          <th>Date from</th>
+          <th>Date to</th>
+          <th>Sessions</th>
+
+        </tr>
+      </thead>
+      <tbody>
+        <% @events.each do |event| %>
+        <tr>
+
+          <td><%= link_to("#{event.event_name}", event_path(event), :class => 'action show') %></td>
+          <td><%= event.date_from.strftime("%d %B %Y") %></td>
+          <td><%= event.date_to.strftime("%d %B %Y") %></td>
+          <td><%= event.sessions.count %></td>
+
+        </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+  </div>
+          </div>
+        </div>
+        <div class="cell cell--desk-1of3">
+          <nav class="dl-menu__nav">
+            <h4>Search events</h4>
+            <%= form_tag(events_path, method: :get) do %>
+            <%= text_field_tag(:search, params[:search]) %>
+            <%= submit_tag ("Search") %>
+            <% end %>
+
+          <%= link_to(new_event_path, :class => 'ql-menu__link') do %>
+            <span class="push-icon">Create a new event<svg focusable="false" height="16" role="img" width="16" class="push-icon__icon"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-chevron-right"></use></svg>
+            </span>
+
+          <% end %>
+
+
+
+          </nav>
+        </div>
       </div>
-      <h4>Search events</h4>
-      <%= form_tag(events_path, method: :get) do %>
-      <%= text_field_tag(:search, params[:search]) %>
-      <%= submit_tag ("Search") %>
-      <% end %>
-
-          <div class="events index">
-
-
-
-
-<div class="content-block">
-
-  <div class="responsive-table responsive-table--end">
-    <div class="responsive-table__inner">
-  <table id="table-styles" class="table table--striped">
-    <thead>
-      <tr class="table__row--inverted">
-
-          <th>Name</th>
-        <th>Category</th>
-        <th>Host</th>
-
-        <th>Date from</th>
-        <th>Date to</th>
-        <th>Sessions</th>
-        <th>Actions</th>
-      </tr>
-    </thead>
-    <tbody>
-      <% @events.each do |event| %>
-      <tr>
-
-        <td><%= event.event_name %></td>
-        <td><%= event.category.name %></td>
-        <td><%= event.host.name %></td>
-
-        <td><%= event.date_from.strftime("%d %B %Y") %></td>
-        <td><%= event.date_to.strftime("%d %B %Y") %></td>
-        <td><%= event.sessions.count %></td>
-        <td class="actions">
-          <%= link_to("Show", event_path(event), :class => 'action show') %><br>
-          <%= link_to("Edit", edit_event_path(event), :class => 'action edit') %><br>
-          <%= link_to("Delete", delete_event_path(event), :class => 'action delete') %><br>
-          <%= link_to("Manage sessions", list_session_path(event), :class => 'action list') %>
-
-
-        </td>
-      </tr>
-      <% end %>
-    </tbody>
-  </table>
-</div></div></div></div>
+    </div>
+  </div>
 </main>

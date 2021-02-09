@@ -1,26 +1,20 @@
-<main>
-
-  <div class="content-block content-block--sml">
-    <h1>
+<%  content_for(:html_title) { @event_title.event_name } %>
+<%= link_to("<< Back to events list", events_path, :class => 'back-link') %>
+<div class="content-block">
+    <h2>
         Sessions
-      </h1>
+      </h2>
 
       <p><%= link_to("Add session", new_session_path(event_id: params[:id]), :class => 'action new btn ') %></p>
       </div>
 
-          <div class="sessions list">
-
-
-
-<div class="content-block">
+          <div class="content-block">
 
   <div class="responsive-table responsive-table--end">
     <div class="responsive-table__inner">
   <table id="table-styles" class="table table--striped">
     <thead>
       <tr class="table__row--inverted">
-      <th>#</th>
-      <th>Event</th>
       <th>Session</th>
       <th>Date</th>
       <th>Duration</th>
@@ -34,8 +28,6 @@
   <tbody>
     <% @sessions.each do |session| %>
     <tr>
-      <td><%= session.id %></td>
-      <td><%= session.event.event_name %></td>
       <td><%= session.title %></td>
       <td><%= session.date.strftime("%d %B %Y") %></td>
       <td><%= session.time_from.strftime("%H:%M") %> - <%= session.time_to.strftime("%H:%M") %></td>
@@ -50,5 +42,4 @@
     </tbody>
     <% end %>
   </table>
-</div></div></div></div>
-</main>
+</div></div></div>

@@ -2,7 +2,7 @@ class Event < ApplicationRecord
 
   belongs_to :category
   belongs_to :host
-  has_many :sessions
+  has_many :sessions, dependent: :destroy
 
   def self.search(search)
     if search
@@ -11,4 +11,9 @@ class Event < ApplicationRecord
       Event.all
     end
   end
+
+  def self.event_title(event_id)
+    Event.find(event_id)
+  end
+
 end

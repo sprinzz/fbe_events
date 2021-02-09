@@ -1,19 +1,24 @@
-<% content_for(:html_title) { 'New speaker' } %>
+<% content_for(:html_title) { 'Update session details' } %>
 <div class="content-block">
 
 
-  <p><%= link_to("<< Back to List", speakers_path, :class => 'back-link') %></p>
+  <p><%= link_to("<< Back to List", sessions_path, :class => 'back-link') %></p>
 </div>
 
 <div class="content-block">
   <div class="form">
 
-  <%= form_for(@speaker) do |f| %>
+
+
+
+
+
+  <%= form_for(@session) do |f| %>
 
     <%= render(:partial => 'form', :locals => {:f => f}) %>
 
     <div class="form-buttons">
-      <%= f.submit("Create speaker") %>
+      <%= f.submit("Update event") %>
     </div>
 
   <% end %>

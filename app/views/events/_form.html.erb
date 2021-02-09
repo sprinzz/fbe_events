@@ -1,26 +1,16 @@
 <%= errors_for(f.object) %>
 
-<table summary="Event form fields">
-  <tr>
-    <th>Title</th>
-    <td><%= f.text_field(:event_name) %></td>
-  </tr>
-  <tr>
-    <th>Date from</th>
-    <td><%= f.date_field(:date_from) %></td>
-  </tr>
-  <tr>
-    <th>Date to</th>
-    <td><%= f.date_field(:date_to) %></td>
-  </tr>
-  <tr>
-    <th>Host</th>
-    <td><%= f.select(:host_id, Host.all.map {|h| [h.name, h.id]}, :prompt => "- Select-") %></td>
-
-  </tr>
-  <tr>
-    <th>Category</th>
-    <td><%= f.select(:category_id, Category.all.map {|c| [c.name, c.id]}, :prompt => "- Select-") %></td>
-  </tr>
-
-</table>
+<%= f.label :event_name %><br>
+<%= f.text_field(:event_name) %>
+<br>
+<%= f.label(:date_from) %>
+<%= f.date_field(:date_from) %>
+<br>
+<%= f.label(:date_to) %>
+<%= f.date_field(:date_to) %>
+<br>
+<%= f.label(:host_id) %>
+<div class="styled-select"><%= f.select(:host_id, Host.all.map {|h| [h.name, h.id]}, :prompt => "- Select-") %></div>
+<br>
+<%= f.label(:category_id) %>
+<div class="styled-select"><%= f.select(:category_id, Category.all.map {|c| [c.name, c.id]}, :prompt => "- Select-") %></div>

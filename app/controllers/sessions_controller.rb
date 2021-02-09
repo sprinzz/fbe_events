@@ -5,12 +5,12 @@ class SessionsController < ApplicationController
 
   def show
     @session = Session.find(params[:id])
+    #@event_title = Event.event_title(params[:id])
   end
 
   def list
-    flash[:notice] = "*** list has been selected"
     @sessions = Session.session_list(params[:id])
-
+    @event_title = Event.event_title(params[:id])
   end
 
 

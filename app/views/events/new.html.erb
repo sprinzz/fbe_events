@@ -1,10 +1,11 @@
-<main>
+<% content_for(:html_title) { 'New event' } %>
+
+  <div class="section bg-white ct-menu">
+  <div class="section__inner">
 
   <div class="content-block content-block--sml">
-    <h1>
-        New Event
-      </h1>
-      <p><%= link_to("<< Back to List", events_path, :class => 'back-link') %></p>
+
+      <p><%= link_to("<< Back to events list", events_path, :class => 'back-link') %></p>
       </div>
 
 
@@ -25,4 +26,5 @@
   <% end %>
   </div>
 </div>
-</main>
+</div>
+</div>

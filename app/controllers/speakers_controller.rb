@@ -60,7 +60,8 @@ class SpeakersController < ApplicationController
         :institution,
         :email,
         :bio,
-        :image
+        :image,
+        :speaker_role_id
 
       )
     end

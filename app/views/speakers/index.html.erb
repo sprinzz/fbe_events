@@ -1,22 +1,35 @@
-<div class="speakers index">
-  <h2>Speakers</h2>
+<%  content_for(:html_title) { "Speakers" } %>
+<%= link_to("<< Back to events list", events_path, :class => 'back-link') %>
+<div class="content-block">
+    <h2>
+        Speakers
+      </h2>
 
-  <%= link_to("Add New Speaker", new_speaker_path, :class => 'action new') %>
+      <p><%= link_to("Add New Speaker", new_speaker_path, :class => 'action new') %></p>
+      </div>
 
-  <table class="listing" summary="Speaker list">
-    <tr class="header">
-      <th>#</th>
-      <th>Name</th>
-      <th>Institution</th>
-      <th>Email</th>
-      <th>Actions</th>
+          <div class="content-block">
+
+  <div class="responsive-table responsive-table--end">
+    <div class="responsive-table__inner">
+  <table id="table-styles" class="table table--striped">
+    <thead>
+      <tr class="table__row--inverted">
+        <th>Name</th>
+        <th>Institution</th>
+        <th>Role</th>
+        <th>Actions</th>
     </tr>
+  </thead>
+  <% if @speakers.empty? %>
+    <p>No speakers have been set up. Click on the button above to set up your first speaker.</p>
+  <% else %>
+  <tbody>
     <% @speakers.each do |speaker| %>
     <tr>
-      <td><%= speaker.id %></td>
       <td><%= speaker.name %></td>
       <td><%= speaker.institution %></td>
-      <td><%= speaker.email %></td>
+      <td><%= speaker.speaker_role.role %></td>
       <td class="actions">
         <%= link_to("Show", speaker_path(speaker), :class => 'action show') %>
         <%= link_to("Edit", edit_speaker_path(speaker), :class => 'action edit') %>
@@ -24,5 +37,7 @@
       </td>
     </tr>
     <% end %>
+    </tbody>
+    <% end %>
   </table>
-</div>
+</div></div></div>

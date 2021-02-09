@@ -1,38 +1,29 @@
 <%= errors_for(f.object) %>
 
-<table summary="Session form fields">
-  <tr>
-    <th>Event</th>
-    <% if params.has_key?(:event_id) %>
-    <td><%= f.select(:event_id, Event.all.map {|e| [e.event_name, e.id]}, :selected => params[:event_id]) %></td>
-    <% else %>
-    <td><%= f.select(:event_id, Event.all.map {|e| [e.event_name, e.id]}, :prompt => "- Select-") %></td>
-    <% end %>
-  </tr>
-  <tr>
-    <th>Title</th>
-    <td><%= f.text_field(:title) %></td>
-  </tr>
-  <tr>
-    <th>Detail</th>
-    <td><%= f.text_area(:description, :rows => 10, :cols => 60) %></td>
-  </tr>
-  <tr>
-    <th>Date</th>
-    <td><%= f.date_field(:date) %></td>
-  </tr>
-  <tr>
-    <th>Time from</th>
-    <td><%= f.time_field(:time_from) %></td>
-  </tr>
-  <tr>
-    <th>Time to</th>
-    <td><%= f.time_field(:time_to) %></td>
-  </tr>
+<p>Event</p>
+<div class="styled-select">
+<% if params.has_key?(:event_id) %>
+ <%= f.select(:event_id, Event.all.map {|e| [e.event_name, e.id]}, :selected => params[:event_id]) %>
+<% else %>
+ <%= f.select(:event_id, Event.all.map {|e| [e.event_name, e.id]}, :prompt => "- Select-") %>
+<% end %>
+</div>
 
-  <tr>
-    <th>Speaker</th>
-    <td><%= f.select(:speaker_id, Speaker.all.map {|s| [s.name, s.id]}, :prompt => "- Select-") %></td>
-  </tr>
+<%= f.label :title %><br>
+<%= f.text_field(:title) %>
+<br>
+<%= f.label(:description) %><br>
+<%= f.text_area(:description, :rows => 10, :cols => 60) %>
+<br>
 
-</table>
+<%= f.label(:date) %>
+<%= f.date_field(:date) %>
+<br>
+<%= f.label(:time_from) %>
+<%= f.time_field(:time_from) %>
+<br>
+<%= f.label(:time_to) %>
+<%= f.time_field(:time_to) %>
+
+<%= f.label(:speaker_id) %>
+<div class="styled-select"><%= f.select(:speaker_id, Speaker.all.map {|h| [h.name, h.id]}, {:prompt => "- Select-"}, {:multiple => true, :size => 5}) %></div>

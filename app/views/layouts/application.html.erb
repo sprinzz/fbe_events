@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>FbeEvents</title>
+    <title><%= content_for?(:html_title) ? yield(:html_title) : "Default" %></title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
@@ -12,7 +12,18 @@
     <link data-n-head="ssr" rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Serif:400,400i,700,700i%7CSource+Sans+Pro:300,300i,400,400i,600,600i,700,700i,900,900i">
   </head>
 
-  <body>
+  <header class="page-header page-header--l1">
+    <div class="page-header__inner max">
+      <div class="logo"><a href="https://www.unimelb.edu.au" class="logo__link">
+        <img alt="Web resources" src="https://d2glwx35mhbfwf.cloudfront.net/v4.10.0/logo-with-padding.svg" class="logo__image logo__image--lg logo--no-padding-lg"></a>
+      </div>
+      <h1 class="page-header__heading"><%= yield(:html_title) %></h1>
+    </div>
+    <div class="page-header__img page-header__aperture" style="background-image: url(&quot;https://matrix-cms.unimelb.edu.au/__data/assets/image/0015/10194/nike-uom-logo-banner.jpg&quot;);">
+    </div>
+  </header>
+
+  <main>
     <%= yield %>
-  </body>
+  </main>
 </html>

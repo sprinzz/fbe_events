@@ -1,9 +1,17 @@
+<% # content_for(:html_title) { @event_title.event_name } %>
 <%= link_to("<< Back to List", sessions_path, :class => 'back-link') %>
 
-<div class="sessions show">
-  <h2>Show sessions</h2>
+<div class="section bg-white">
+  <div class="section__inner">
 
-  <table summary="session detail view">
+<div class="events show">
+  <h2>Session details</h2>
+
+  <table summary="event detail view">
+
+
+
+
     <tr>
       <th>Title</th>
       <td><%= @session.title %></td>
@@ -26,7 +34,8 @@
     </tr>
     <tr>
       <th>Speaker</th>
-      <td><%= @session.speaker.name %></td>
+      <td><%= link_to("#{@session.speaker.name}", speaker_path(@session.speaker_id), :class => 'action show') %></td>
+
     </tr>
     <tr>
       <th>Created</th>
@@ -38,4 +47,6 @@
     </tr>
   </table>
 
+</div>
+</div>
 </div>

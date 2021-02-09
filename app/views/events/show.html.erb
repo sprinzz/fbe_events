@@ -1,13 +1,14 @@
-<%= link_to("<< Back to List", events_path, :class => 'back-link') %>
+<% content_for(:html_title) { @event.event_name } %>
+<%= link_to("<< Back to events list", events_path, :class => 'back-link') %>
+
+<div class="section bg-white">
+  <div class="section__inner">
 
 <div class="events show">
-  <h2>Show event</h2>
+  <h2>Event details</h2>
 
   <table summary="event detail view">
-    <tr>
-      <th>Title</th>
-      <td><%= @event.event_name %></td>
-    </tr>
+
     <tr>
       <th>Category</th>
       <td><%= @event.category.name %></td>
@@ -34,4 +35,10 @@
     </tr>
   </table>
 
+  <%= link_to("Update event", edit_event_path(@event.id), :class => 'btn') %>
+  <%= link_to("Manage sessions", list_session_path(@event.id), :class => 'btn') %>
+  <%= link_to("Delete", delete_event_path(@event.id), :class => 'btn') %>
+
+</div>
+</div>
 </div>
